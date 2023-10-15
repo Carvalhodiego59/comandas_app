@@ -1,0 +1,47 @@
+{% extends "base.html" %}
+{% block title %}Funcionários{% endblock %}
+{% block content %}
+<style>
+  body {
+    background-color: #825a5a;
+  }
+</style>
+
+<div class="container mt-5">
+  <div class="p-4 bg-light border rounded">
+    <h1>Lista de Funcionários</h1>
+    <table class="table">
+      <thead>
+        <tr>
+          <th>Nome</th>
+          <th>Matrícula</th>
+          <th>CPF</th>
+          <th>Telefone</th>
+          <th>Grupo</th>
+          <th>Senha</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <th scope="row">...</th>
+          <td>...</td>
+          <td>...</td>
+          <td>...</td>
+          <td>...</td>
+          <td>...</td>
+          <td>...</td>
+          <td><i class="fas fa-edit"></i></td>
+          <td><i class="fas fa-trash"></i></td>
+        </tr>
+      </tbody>
+    </table>
+    <a href="{{ url_for('funcionario.formFuncionario') }}" method="GET" class="btn btn-primary">Cadastrar Novo
+      Funcionário</a>
+  </div>
+</div>
+
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.3/dist/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+{% endblock %}

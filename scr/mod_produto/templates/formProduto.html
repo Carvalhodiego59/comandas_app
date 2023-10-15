@@ -1,0 +1,58 @@
+{% extends "base.html" %}
+{% block title %}Produto{% endblock %}
+{% block content %}
+<style>
+    body {
+        background-color: #825a5a;
+    }
+
+    .form-group {
+        margin-bottom: 1.7rem;
+    }
+</style>
+
+<div class="container">
+    <div class="p-4 bg-light border rounded">
+        <h1 class="mb-4">Cadastro de Produto</h1>
+        <div class="form-group row">
+            <form name="formAdicionarProduto" id="formAdicionarProduto" action="" method="POST">
+                <div class="form-group row">
+
+                    <label for="nome" class="col-sm-2 col-form-label">Nome</label>
+                    <div class="col-sm-4">
+                        <input type="text" name="nome" id="nome" value="" placeholder="Nome" maxlength="100" autofocus
+                            required class="form-control">
+                    </div>
+
+                    <label for="foto" class="col-sm-2 col-form-label">Foto</label>
+                    <div class="col-sm-4">
+                        <input type="file" name="foto" id="foto" accept="image/*" class="form-control-file">
+                    </div>
+
+                </div>
+                <div class="form-group row">
+
+                    <label for="descricao" class="col-sm-2 col-form-label">Descrição</label>
+                    <div class="col-sm-4">
+                        <textarea name="descricao" id="descricao" rows="4" placeholder="Descrição do Produto"
+                            class="form-control" required></textarea>
+                    </div>
+
+                    <label for="valor" class="col-sm-2 col-form-label">Valor Unitário</label>
+                    <div class="col-sm-4">
+                        <input type="number" step="0.01" min="0" name="valor" id="valor" value=""
+                            placeholder="Valor (R$)" required class="form-control">
+                    </div>
+
+                </div>
+                <div class="form-group row">
+                    <div class="col-sm-4 offset-sm-2">
+                        <button type='submit' name='salvaProdutoDB' id='salvaProdutoDB' class="btn btn-primary"><i
+                                class='fas fa-save'></i> Salvar</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+{% endblock %}

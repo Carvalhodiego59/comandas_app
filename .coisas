@@ -1,0 +1,5 @@
+python -m venv venv
+venv\Scripts\activate
+Flask --app scr\main.py routes
+ python .\scr\main.py
+ kkkkkkkk
