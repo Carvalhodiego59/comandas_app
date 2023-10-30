@@ -2,99 +2,64 @@
 <html lang="pt-br">
 
 <head>
+
+
+
+
+
+    <link rel="stylesheet" href="{{ url_for('static', filename='sweetalert2/sweetalert2.min.css') }}">
+    <link href="https://cdn.jsdelivr.net/npm/sweetalert2@11.7.32/dist/sweetalert2.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="{{ url_for('static', filename='bootstrap-5.3.2-dist/css/bootstrap.min.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='fontawesome-free-6.4.2-web/css/all.min.css') }}">
+    <link rel="shortcut icon" href="{{ url_for('static', filename='favicon.ico') }}">
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="shortcut icon" href="{{ url_for('static', filename='ghost-solid.ico') }}">
-    <link rel="stylesheet" href="{{ url_for('static', filename='fontawesome-free-6.4.2-web/css/all.min.css') }}">
-    <title>{% block title %}{% endblock %} - AbcBolinhas</title>
-
-    {% block style %}
+    <title>{% block title %}{% endblock %} - Pastelaria do Zé</title>
+    {% block style %}{% endblock %}
     <style>
         .important {
-            color: #8864ed;
-        }
-
-        body {
-            background-color: #825a5a;
-        }
-
-        .navbar-brand {
-            margin-left: 2rem;
-           
-            font-size: 1.5rem;
-           
-            font-weight: bold;
-           
-        }
-
-        .navbar {
-            margin-bottom: 30px;
-        }
-
-        .footer {
-            margin-top: auto;
-           
-            background-color: #825a5a;
-            
-            color: #ffffff;
-            
-            text-align: center;
-           
-            padding: 1rem;
-            
+            color: #6495ED;
         }
     </style>
-    {% endblock %}
-
-
-    <link rel="stylesheet" href="{{ url_for('static', filename='bootstrap-5.3.2-dist/css/bootstrap.min.css') }}">
 </head>
 
 <body>
-    {% block menu %}
-    <nav class="navbar navbar-expand-lg navbar-light bg-light">
-        <a class="navbar-brand" href="{{ url_for('index.formListaIndex') }}">Pizzaria Do zé</a>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
-            aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarNav">
-            <ul class="navbar-nav ml-auto">
-                <li class="nav-item">
-                    <a class="nav-link" href="{{ url_for('funcionario.formListaFuncionario') }}">Funcionários</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="{{ url_for('funcionario.formFuncionario') }}">Cadastrar Funcionário</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="{{ url_for('produto.formListaProduto') }}">Produtos</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="{{ url_for('produto.formProduto') }}">Cadastrar Produto</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="{{ url_for('cliente.formListaCliente') }}">Clientes</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="{{ url_for('cliente.formCliente') }}">Cadastrar Cliente</a>
-                </li>
-            </ul>
-        </div>
-    </nav>
-    {% endblock %}
-
-    {% block content %}
-
-    {% endblock %}
-
+    {% block menu %}{% endblock %}
+    {% block content %}{% endblock %}
     {% block footer %}
-    <a style="color: #ffffff; "> &copy; Copyright 2022 by</a> <a href="http://127.0.0.1:5000/">AbcBolinhas</a>.
+    &copy; Copyright 2023 by <a href="http://127.0.0.1:5000/">Diego Carvalho</a>
     {% endblock %}
+    {% block js %}
 
-    {% block js %}{% endblock %}
+    <script src="{{ url_for('static', filename='jquery-3.6.1.min.js') }}"></script>
+    <script src="{{ url_for('static', filename='jquery.maskedinput/scr/jquery.maskedinput.min.js') }}"></script>
     <script src="{{ url_for('static', filename='bootstrap-5.3.2-dist/js/bootstrap.min.js') }}"></script>
-    <script src="{{ url_for('static', filename='fontawesome-free-6.4.2-web/js/all.js') }}"></script>
+    <script src="https://kit.fontawesome.com/16af255963.js" crossorigin="anonymous"></script>
+    <script src="{{ url_for('static', filename='sweetalert2/sweetalert2.all.min.js') }}"></script>
+
+    {% endblock %}
+    {% if request.args.get('msg'): %}
+    <script>
+        Swal.fire("Sucesso", "{{ request.args.get('msg') }}", "success");
+    </script>
+    {% elif request.args.get('msgErro'): %}
+    <script>
+        Swal.fire("Erro", "{{ request.args.get('msgErro') }}", "error");
+    </script>
+    <!-- render_template - msg ou msgErro -->
+    {% elif msg: %}
+    <script>
+        Swal.fire("ID {{ msg.id }}, {{ msg.msg }} ", "{{ msg }}", "success");
+    </script>
+    {% elif msgErro: %}
+    <script>
+        Swal.fire("{{ msgErro.msg if msgErro.msg else 'Erro' }}", "{{ msgErro }}", "error");
+    </script>
+    {% endif %}
+ 
 </body>
+
+
 
 </html>
