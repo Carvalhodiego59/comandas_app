@@ -8,4 +8,4 @@ def erro404(error):
 
 @bp_erro.app_errorhandler(500)
 def erro500(error):
-  return render_template("form500.html", erroHttp=error)
+  return render_template("form500.html", erroHttp=error) 

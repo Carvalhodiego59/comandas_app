@@ -8,4 +8,4 @@ def formListaProduto():
 
 @bp_produto.route('/form-produto/', methods=['GET'])
 def formProduto():
-  return render_template('formProduto.html')
+  return render_template('formProduto.html') 

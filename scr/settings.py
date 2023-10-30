@@ -10,4 +10,4 @@ load_dotenv(dotenv_file)
 # Configurações da APP 
 HOST = os.getenv("HOST")
 PORT = os.getenv("PORT")
-DEBUG = os.getenv("DEBUG")
+DEBUG = os.getenv("DEBUG") 

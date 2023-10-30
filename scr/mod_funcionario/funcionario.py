@@ -9,3 +9,4 @@ def formListaFuncionario():
 @bp_funcionario.route('/form-funcionario/', methods=['GET'])
 def formFuncionario():
   return render_template('formFuncionario.html')
+ 

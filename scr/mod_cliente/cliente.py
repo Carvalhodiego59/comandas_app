@@ -8,4 +8,4 @@ def formListaCliente():
 
 @bp_cliente.route('/form-cliente/', methods=['GET'])
 def formCliente():
-  return render_template('formCliente.html')
+  return render_template('formCliente.html') 
