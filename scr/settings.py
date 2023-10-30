@@ -7,7 +7,7 @@ dotenv_file = find_dotenv()
 # Carrega o arquivo .env
 load_dotenv(dotenv_file)
 
-# Configurações da APP
+# Configurações da APP 
 HOST = os.getenv("HOST")
 PORT = os.getenv("PORT")
 DEBUG = os.getenv("DEBUG")
