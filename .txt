@@ -4,4 +4,4 @@ Cada navegador possui seus atalhos para abrir, mas alguns atalhos que funcionam 
 • Ferramentas do Programador/Desenvolvimento
 • Ctrl + Shift + I
 • Ferramentas do Dispositivo / Design Responsivo
-• Ctrl + Shift + M
+• Ctrl + Shift + M a
